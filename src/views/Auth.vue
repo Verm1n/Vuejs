@@ -1,9 +1,13 @@
 <template>
     <div id="login">
         <v-form
+          class="forma"
           ref="form"
           lazy-validation
         >
+            <h1
+            style="text-align:center"
+            >Welcome to the Loans website</h1>
             <v-text-field
             v-model="input.username"
             :counter="10"
@@ -88,6 +92,14 @@
         margin-left:15px;
         margin-right:15px;
     }
+
+    .forma{
+        width:400px;
+        height: 400px;
+        margin: auto;
+        padding-top:250px;
+    }
+   
 </style>
 
 
