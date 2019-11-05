@@ -103,6 +103,16 @@
           </v-carousel-item>
         </v-carousel> 
 
+      <div style="display:flex;flex-direction:row;jusify-content:center;width:100%;padding-top:140px;">
+        <box v-for="i in orders" 
+        :key="i.id"
+        :status=i.status
+        :fullName=i.fullName
+        :description=i.description
+        :sum=i.sum
+    
+        ></box>
+      </div>
 
 </v-content>
     </div>
@@ -110,6 +120,7 @@
 </template>
 
 <script>
+import box from '../Elements/box'
 
     export default {
         name: 'secure',
@@ -128,20 +139,51 @@
                   'orange',
                 ],
                 slides: [
-                  'Привет',
-                  'Ты знаешь',
-                  'Что',
-                  'В',
-                  'ы',
-                ]
+                  '1',
+                  '2',
+                  '3',
+                  '4',
+                  '5',
+                ],
+                orders: 
+                  [{
+                    id:0,
+                    status:'Online',
+                    fullName:'Игорь Шагалкин',
+                    description:'Мне бы в биткоин вложиться',
+                    sum:1000
+                  },
+                  { 
+                    id:1,
+                    status:'Online',
+                    fullName:'Белов Константин',
+                    description:'Чуваки...Не...Это надо видеть...',
+                    sum:3000
+                  },
+                  { 
+                    id:2,
+                    status:'Online',
+                    fullName:'Антон Волков',
+                    description:'На креветки с круасанами',
+                    sum:10
+                  },
+                  {
+                    id:3,
+                    status:'Online',
+                    fullName:'Денис Габец',
+                    description:'Собираю донаты на чат',
+                    sum:14000
+                  }
+                  ]
+                
             }
+        },
+        components:{
+          'box':box
         }
     }
 </script>
 
-<style scoped>
-    #secure {
-
-    }
+<style>
 
 </style>
