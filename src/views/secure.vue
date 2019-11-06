@@ -1,11 +1,11 @@
 <template>
   <v-app>
+
     <div>
       <v-app-bar
             color="deep accent-4"
             dark
           >
-
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
             <v-toolbar-title>Loans page</v-toolbar-title>
@@ -42,6 +42,7 @@
             </v-menu>
       </v-app-bar>
 
+
       <v-navigation-drawer
             v-model="drawer"
             absolute
@@ -77,46 +78,49 @@
         </v-list>
       </v-navigation-drawer>
 
-<v-content>
 
-      <v-carousel
-      cycle
-      continuous
-      interval = 1000
-      >
-          <v-carousel-item
-            v-for="(slide, i) in slides"
-            :key="i"
-          >
-            <v-sheet
-              :color="colors[i]"
-              height="100%"
+      <v-content>
+            <v-carousel
+            cycle
+            continuous
+            interval = 5000
             >
-              <v-row
-                class="fill-height"
-                align="center"
-                justify="center"
-              >
-                <div class="display-3">{{ slides[i] }}</div>
-              </v-row>
-            </v-sheet>
-          </v-carousel-item>
-        </v-carousel> 
-
-      <div style="display:flex;flex-direction:row;jusify-content:center;width:100%;padding-top:140px;">
-        <box v-for="i in orders" 
-        :key="i.id"
-        :status=i.status
-        :fullName=i.fullName
-        :description=i.description
-        :sum=i.sum
-    
-        ></box>
-      </div>
-
-</v-content>
+                <v-carousel-item
+                  v-for="(slide, i) in slides"
+                  :key="i"
+                >
+                  <v-sheet
+                    :color="colors[i]"
+                    height="100%"
+                  >
+                    <v-row
+                      class="fill-height"
+                      align="center"
+                      justify="center"
+                    >
+                      <div class="display-3">{{ slides[i] }}</div>
+                    </v-row>
+                  </v-sheet>
+                </v-carousel-item>
+              </v-carousel> 
+             <v-parallax
+              dark
+              height="100%"
+             >
+                <div style="display:flex;flex-direction:row;jusify-content:space-between;">
+                  <box style="margin-top:40px" v-for="i in orders" 
+                  :key="i.id"
+                  :status=i.status
+                  :fullName=i.fullName
+                  :description=i.description
+                  :sum=i.sum   
+                  ></box>
+                </div>
+             </v-parallax>
+      </v-content>
     </div>
-      </v-app>  
+    
+  </v-app>  
 </template>
 
 <script>
@@ -132,45 +136,45 @@ import box from '../Elements/box'
                   {title:'About',icon:'mdi -question_answer'}
                 ],
                 colors: [
-                  'primary',
-                  'secondary',
-                  'yellow darken-2',
-                  'red',
-                  'orange',
+                  '#0059ff',
+                  '#0059ff',
+                  '#0059ff',
+                  '#0059ff',
+                  '#0059ff',
                 ],
                 slides: [
-                  '1',
-                  '2',
-                  '3',
-                  '4',
-                  '5',
+                  'Чувак',
+                  'Не',
+                  'Это',
+                  'Надо',
+                  'Видеть...',
                 ],
                 orders: 
                   [{
                     id:0,
                     status:'Online',
-                    fullName:'Игорь Шагалкин',
+                    fullName:'Игорь',
                     description:'Мне бы в биткоин вложиться',
                     sum:1000
                   },
                   { 
                     id:1,
                     status:'Online',
-                    fullName:'Белов Константин',
+                    fullName:'Константин',
                     description:'Чуваки...Не...Это надо видеть...',
                     sum:3000
                   },
                   { 
                     id:2,
                     status:'Online',
-                    fullName:'Антон Волков',
+                    fullName:'Антон',
                     description:'На креветки с круасанами',
                     sum:10
                   },
                   {
                     id:3,
                     status:'Online',
-                    fullName:'Денис Габец',
+                    fullName:'Денис',
                     description:'Собираю донаты на чат',
                     sum:14000
                   }
